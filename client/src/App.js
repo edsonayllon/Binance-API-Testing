@@ -5,10 +5,18 @@ import './App.css';
 function App() {
 
   const getApi = async () => {
-    let token = 'ETH';
-    let res = await fetch(`https://api.binance.com/api/v3/avgPrice?${token}`);
-    let json = await res.json();
-    console.log(json);
+    try {
+      let res = await fetch(`https://testnet-dex.binance.org/api/v1/markets`, {
+        method: 'GET', // *GET, POST, PUT, DELETE, etc.
+        
+      });
+      console.log(res)
+      let json = await res.json();
+      console.log(json);
+    } catch (err) {
+      console.log(err)
+    }
+    
   }
 
   useEffect(() => {
